@@ -1,0 +1,569 @@
+@use 'variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+// Utilities
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.block {
+  display: block !important;
+}
+
+// Alpine transition utilities
+.transition { transition-property: all; }
+.ease-out { transition-timing-function: ease-out; }
+.ease-in { transition-timing-function: ease-in; }
+.duration-300 { transition-duration: 300ms; }
+.duration-200 { transition-duration: 200ms; }
+.opacity-0 { opacity: 0; }
+.opacity-100 { opacity: 1; }
+
+// Base
+
+html {
+  font-family: $font-family-sans;
+}
+
+body {
+  background-color: $color-stone-100;
+  color: $color-stone-950;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body {
+  background-color: $color-stone-900;
+  color: $color-stone-200;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Container
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 2rem;
+  }
+}
+
+// Section
+
+.section {
+  padding: 4rem 0;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 5rem 0;
+  }
+}
+
+// Page Title
+
+.page-title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+
+  @media (min-width: $breakpoint-lg) {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
+
+// Page Description
+
+.page-description {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: rgba($color-stone-950, 0.7);
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 1.125rem;
+    line-height: 2rem;
+  }
+}
+
+.dark .page-description {
+  color: rgba($color-stone-100, 0.7);
+}
+
+// Button
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-color: $color-stone-600;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $color-white;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-stone-700;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-stone-600;
+    outline-offset: 2px;
+  }
+}
+
+.dark .btn {
+  background-color: $color-stone-300;
+  color: $color-stone-950;
+
+  &:hover {
+    background-color: $color-stone-200;
+  }
+
+  &:focus-visible {
+    outline-color: $color-stone-400;
+  }
+}
+
+// Header
+
+.header {
+  transition: background-color 0.3s;
+  background-color: $color-stone-100;
+
+  &.is-open {
+    background-color: rgba($color-stone-500, 0.1);
+  }
+}
+
+.dark .header {
+  background-color: $color-stone-900;
+
+  &.is-open {
+    background-color: rgba($color-stone-400, 0.1);
+  }
+}
+
+.header-inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 1.5rem;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 1.5rem 2rem;
+  }
+}
+
+.header-brand a {
+  border-radius: 0.375rem;
+  outline: none;
+
+  &:focus-visible {
+    outline: 2px solid $color-stone-950;
+  }
+
+  span {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+}
+
+.dark .header-brand a:focus-visible {
+  outline-color: $color-stone-200;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-right: -0.5rem;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: 0.75rem;
+  }
+}
+
+.header-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  color: $color-stone-950;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: rgba($color-stone-500, 0.1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px $color-stone-950;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  &--menu svg {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.dark .header-btn {
+  color: $color-stone-200;
+
+  &:hover {
+    background-color: rgba($color-stone-400, 0.1);
+  }
+
+  &:focus-visible {
+    box-shadow: 0 0 0 2px $color-stone-200;
+  }
+}
+
+.header-menu {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 0 1.5rem;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    padding: 0 2rem;
+  }
+}
+
+.header-menu-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  padding-top: 1rem;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+
+  > a {
+    border-bottom: 1px solid rgba($color-stone-900, 0.1);
+
+    &:first-child {
+      border-top: 1px solid rgba($color-stone-900, 0.1);
+    }
+  }
+}
+
+.dark .header-nav > a {
+  border-color: rgba($color-stone-300, 0.1);
+}
+
+.header-nav-link {
+  display: inline-flex;
+  padding: 1.5rem 0;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  color: $color-stone-950;
+  transition: color 0.2s;
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  > div {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 1.5rem;
+  }
+
+  &:focus-visible > div {
+    outline: 2px solid $color-stone-950;
+    outline-offset: 2px;
+  }
+
+  span:hover {
+    text-decoration: underline;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 2rem 0;
+  }
+}
+
+.dark .header-nav-link {
+  color: $color-stone-200;
+
+  &:focus-visible > div {
+    outline-color: $color-stone-200;
+  }
+}
+
+// Footer
+
+.footer {
+  margin-top: 4rem;
+  padding: 4rem 0;
+  text-align: center;
+
+  @media (min-width: $breakpoint-lg) {
+    margin-top: 5rem;
+    padding: 5rem 0;
+  }
+
+  p {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: rgba($color-stone-950, 0.7);
+  }
+}
+
+.dark .footer p {
+  color: rgba($color-stone-200, 0.7);
+}
+
+// About
+
+.about-grid {
+  display: grid;
+  gap: 3rem;
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+  }
+}
+
+.about-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.about-avatar {
+  height: 16rem;
+  width: 18.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto;
+
+  @media (min-width: $breakpoint-lg) {
+    height: 18rem;
+    width: 18rem;
+    margin: 0;
+  }
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  transition: all 0.2s;
+  color: rgba($color-stone-950, 0.6);
+
+  &:hover {
+    background-color: rgba($color-stone-500, 0.1);
+    color: $color-stone-950;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.dark .social-link {
+  color: rgba($color-stone-100, 0.7);
+
+  &:hover {
+    background-color: rgba($color-stone-400, 0.1);
+    color: $color-stone-200;
+  }
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 2rem;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: 2.5rem;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  color: rgba($color-stone-950, 0.7);
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 1.125rem;
+    line-height: 2rem;
+  }
+}
+
+.dark .about-text {
+  color: rgba($color-stone-100, 0.75);
+}
+
+// Error page (404)
+
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: 2.5rem;
+  }
+}
+
+.error-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: 1.5rem;
+  }
+}
+
+// Photography page
+
+.photo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: 2.5rem;
+  }
+}
+
+.gallery-description a {
+  text-decoration: underline;
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 2rem;
+}
+
+.photo-empty {
+  padding-bottom: 4rem;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: rgba($color-stone-950, 0.7);
+
+  @media (min-width: $breakpoint-sm) {
+    padding-bottom: 5rem;
+    font-size: 1.25rem;
+  }
+}
+
+.dark .photo-empty {
+  color: rgba($color-stone-100, 0.7);
+}
+
+// Bookshelf page
+
+.bookshelf-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: 2.5rem;
+  }
+}
