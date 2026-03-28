@@ -1,0 +1,24 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import PageTitle from '../../components/ui/PageTitle';
+import PageDescription from '../../components/ui/PageDescription';
+import Section from '../../components/ui/Section';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  description="Rituals / Gatherings — case studies with mixed media."
+  title="Rituals · maybe:fiction"
+>
+  <Section>
+    <div class="page-header">
+      <PageTitle>Rituals / Gatherings</PageTitle>
+      <PageDescription>Case studies with mixed media (text, photos, video).</PageDescription>
+      <ul class="page-list">
+        <li><a href={`${base}rituals/just-give-me-a-moment`}>Just Give Me A Moment</a></li>
+        <li><a href={`${base}rituals/eclectic-pathetic`}>Eclectic Pathetic</a></li>
+      </ul>
+    </div>
+  </Section>
+</Layout>

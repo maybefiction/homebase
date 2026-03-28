@@ -1,4 +1,4 @@
-import type { Photo } from '../data/photography';
+import type { Photo } from '../data/gallery';
 
 export interface ResolvedPhoto extends Photo {
   formattedDate: string;

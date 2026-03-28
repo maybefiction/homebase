@@ -1,0 +1,26 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import PageTitle from '../../components/ui/PageTitle';
+import PageDescription from '../../components/ui/PageDescription';
+import Section from '../../components/ui/Section';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  description="Productions — case studies with mixed media."
+  title="Productions · maybe:fiction"
+>
+  <Section>
+    <div class="page-header">
+      <PageTitle>Productions</PageTitle>
+      <PageDescription>Case studies with mixed media (text, photos, video).</PageDescription>
+      <ul class="page-list">
+        <li><a href={`${base}productions/jornada-de-puertos-abiertas`}>Jornada De Puertos Abiertas</a></li>
+        <li><a href={`${base}productions/friend-knocks`}>Friend Knocks</a></li>
+        <li><a href={`${base}productions/what-clings`}>What Clings</a></li>
+        <li><a href={`${base}productions/spontaneous-attachment`}>Spontaneous Attachment</a></li>
+      </ul>
+    </div>
+  </Section>
+</Layout>

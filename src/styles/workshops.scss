@@ -1,5 +1,47 @@
 @use 'variables' as *;
 
+// Page header
+
+.photo-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+
+  @media (min-width: $breakpoint-sm) {
+    gap: 2.5rem;
+  }
+}
+
+.gallery-description a {
+  text-decoration: underline;
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-bottom: 2rem;
+}
+
+.photo-empty {
+  padding-bottom: 4rem;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  color: rgba($color-stone-950, 0.7);
+
+  @media (min-width: $breakpoint-sm) {
+    padding-bottom: 5rem;
+    font-size: 1.25rem;
+  }
+}
+
+.dark .photo-empty {
+  color: rgba($color-stone-100, 0.7);
+}
+
+// Gallery
+
 .justified-gallery {
   --padding: 0;
   --space: max(1.5vw, 8px);

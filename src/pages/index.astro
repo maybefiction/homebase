@@ -1,11 +1,36 @@
 ---
-import About from '../components/home/About';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../components/layout/Layout.astro';
+import PageDescription from '../components/ui/PageDescription';
+import PageTitle from '../components/ui/PageTitle';
+import '../styles/index.scss';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
-  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  title="Homebase"
+  description="maybe:fiction — a creative collective."
+  title="maybe:fiction"
 >
-  <About client:load />
+  <div class="home-main">
+    <div class="home-orbit">
+      <div class="home-orbit-center">
+        <PageTitle>maybe:fiction</PageTitle>
+        <PageDescription>transforming art into a social practice</PageDescription>
+      </div>
+      <div class="home-orbit-row home-orbit-row--inner">
+        <a href={`${base}about`} class="home-orbit-link">About</a>
+        <a href={`${base}productions`} class="home-orbit-link">Productions</a>
+      </div>
+      <div class="home-orbit-row home-orbit-row--outer">
+        <a href={`${base}rituals`} class="home-orbit-link">Rituals</a>
+        <a href={`${base}workshops`} class="home-orbit-link">Workshops</a>
+      </div>
+    </div>
+    <div class="home-logo">
+      <img
+        src={`${import.meta.env.BASE_URL}maybefiction-logo.png`}
+        alt="maybe:fiction studios logo"
+      />
+    </div>
+  </div>
 </Layout>

@@ -1,27 +1,27 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import PageTitle from '../components/ui/PageTitle';
-import PageDescription from '../components/ui/PageDescription';
-import { photos } from '../data/photography';
-import { resolvePhotos, computeTagCounts, buildSidebarHtml } from '../utils/photography';
+import Layout from '../../components/layout/Layout.astro';
+import PageTitle from '../../components/ui/PageTitle';
+import PageDescription from '../../components/ui/PageDescription';
+import { photos } from '../../data/gallery';
+import { resolvePhotos, computeTagCounts, buildSidebarHtml } from '../../utils/gallery';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import '@fancyapps/ui/dist/fancybox/fancybox.sidebar.css';
-import '../styles/photography.scss';
+import '../../styles/workshops.scss';
 
 const validPhotos = resolvePhotos(photos);
 const sortedTags = computeTagCounts(validPhotos);
 ---
 
 <Layout
-  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-  title="Photography · Homebase"
+  description="Workshops — case studies with mixed media."
+  title="Workshops · maybe:fiction"
 >
   <section class="section">
     <div class="photo-header">
-      <PageTitle>Photography</PageTitle>
+      <PageTitle>Workshops</PageTitle>
       <PageDescription>
         <span class="gallery-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Case studies with mixed media (text, photos, video).
           Gallery created with <a href="https://fancyapps.com/fancybox" target="_blank">Fancybox</a>.
         </span>
       </PageDescription>

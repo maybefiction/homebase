@@ -1,6 +1,6 @@
 import { socialLinks } from '../../data/about';
-import Button from '../ui/Button';
-import Section from '../ui/Section';
+import Button from '../../components/ui/Button';
+import Section from '../../components/ui/Section';
 
 const SocialLinks = () => (
   <div className="social-links">
@@ -23,23 +23,21 @@ const About = () => (
     <div className="about-grid">
       <div className="about-profile">
         <img
-          src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop"
-          alt="Profile"
+          src={`${import.meta.env.BASE_URL}maybefiction-logo.png`}
+          alt="maybe:fiction studios logo"
           className="about-avatar"
         />
         <SocialLinks />
       </div>
       <div className="about-content">
         <p className="about-text">
-          <b>Lorem ipsum dolor sit amet!</b>
+          <b>maybe:fiction</b> — the org / collective
           <br /><br />
-          Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          <b>Ishaan</b> — artist bio
           <br /><br />
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          <br /><br />
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          <b>Alex</b> — artist bio
         </p>
-        <Button href={`${import.meta.env.BASE_URL}photography`}>See my work</Button>
+        <Button href={`${import.meta.env.BASE_URL}productions`}>See our work</Button>
       </div>
     </div>
   </Section>
