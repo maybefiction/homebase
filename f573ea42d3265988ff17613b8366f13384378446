@@ -1,0 +1,93 @@
+src/styles/workshops.scss
+  ca9f0d5862579426 9,12,23-24,28,30,34,51,57,195,202,208
+src/styles/about.scss
+  ca9f0d5862579426 5,9,17,21-22,28-29,37,44-45,56-57,75-76,79,90,95
+src/styles/_variables.scss
+  1b938ce97c1b9284 3-13
+src/pages/about/_About.tsx
+  ca9f0d5862579426 1,27
+src/styles/404.scss
+  ca9f0d5862579426 7,10,17,20
+src/components/layout/Layout.astro
+  ca9f0d5862579426 5,22
+src/styles/_base.scss
+  ca9f0d5862579426 84,87,91,104,107,115,120,128,133,150,184,189,202-203,205,210,214
+README.md
+  a0b5b01ed6da0c8f 3-18
+src/styles/header.scss
+  ca9f0d5862579426 1-41,43-120,122-123,125-144,147-157,160-192
+src/pages/index.astro
+  a0b5b01ed6da0c8f 2-6,10,23
+  ca9f0d5862579426 7,33
+src/components/ui/StickyNoteLink.tsx
+  a0b5b01ed6da0c8f 1-9,11-17
+src/components/layout/Header.astro
+  ca9f0d5862579426 2-3
+  ea027a6d78402cbd 53-54,61-88,90-96,100,103-104
+src/styles/index.scss
+  ca9f0d5862579426 11,18
+  a0b5b01ed6da0c8f 45-49,58-60,63,65-69,72,74-75,77,81-83
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.22",
+  "base_commit_sha": "f573ea42d3265988ff17613b8366f13384378446",
+  "prompts": {
+    "1b938ce97c1b9284": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "15158c47-08cd-4569-9739-a15c1e84790d",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 12,
+      "total_deletions": 12,
+      "accepted_lines": 11,
+      "overriden_lines": 1,
+      "messages_url": "https://usegitai.com/cas/66448736c530987d758b11d5c5d59f00fbfefdba2d19c7afa332cd005b0fb5b8"
+    },
+    "a0b5b01ed6da0c8f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "c477190b-00fb-4bff-81c0-48475de1bf37",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 124,
+      "total_deletions": 58,
+      "accepted_lines": 63,
+      "overriden_lines": 11,
+      "messages_url": "https://usegitai.com/cas/ab29ab9bf868c24bb0868ff9bbadd48fc001107ce07b95b5c368eea82edd8b6a"
+    },
+    "ca9f0d5862579426": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "4270e148-9aa3-4e0c-ac04-6e9008651001",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 301,
+      "total_deletions": 964,
+      "accepted_lines": 245,
+      "overriden_lines": 12,
+      "messages_url": "https://usegitai.com/cas/cd96edd4cf70c84ac86d33738128d27aaeaf3522a927feca82ed937644653145"
+    },
+    "ea027a6d78402cbd": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "0e768189-7214-4035-beb0-806ae5b2cbd6",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 886,
+      "total_deletions": 904,
+      "accepted_lines": 707,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/9f4e24dcff3ce80961ac79ef9bf6b2ca3dd9aa04c492e30df7a8ad4179fe4219"
+    }
+  }
+}
