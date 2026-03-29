@@ -3,6 +3,7 @@ import Layout from '../../components/layout/Layout.astro';
 import PageTitle from '../../components/ui/PageTitle';
 import PageDescription from '../../components/ui/PageDescription';
 import { photos } from '../../data/gallery';
+import { workshopsPage } from '../../data/workshops';
 import { resolvePhotos, computeTagCounts, buildSidebarHtml } from '../../utils/gallery';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import '@fancyapps/ui/dist/fancybox/fancybox.sidebar.css';
@@ -13,17 +14,15 @@ const sortedTags = computeTagCounts(validPhotos);
 ---
 
 <Layout
-  description="Workshops — case studies with mixed media."
-  title="Workshops · maybe:fiction"
+  description={workshopsPage.metaDescription}
+  title={workshopsPage.metaTitle}
 >
   <section class="section">
     <div class="photo-header">
-      <PageTitle>Workshops</PageTitle>
+      <PageTitle>{workshopsPage.title}</PageTitle>
       <PageDescription>
         <span class="gallery-description">
-          Case studies with mixed media (text, photos, video).
-          Gallery created with <a href="https://fancyapps.com/fancybox" target="_blank">Fancybox</a>.
-        </span>
+          {workshopsPage.description}
       </PageDescription>
     </div>
   </section>
@@ -95,7 +94,7 @@ const sortedTags = computeTagCounts(validPhotos);
 
 <script>
   import { Fancybox } from '@fancyapps/ui/dist/fancybox/';
-  import { Sidebar } from '@fancyapps/ui/dist/fancybox/fancybox.sidebar.js';
+import { Sidebar } from '@fancyapps/ui/dist/fancybox/fancybox.sidebar.js';
 
   Fancybox.bind('[data-fancybox]', {
     theme: 'auto',

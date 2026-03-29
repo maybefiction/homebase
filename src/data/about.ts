@@ -1,3 +1,15 @@
+export const aboutPage = {
+  metaTitle: 'About · maybe:fiction',
+  metaDescription: 'About maybe:fiction, the creative collective.',
+  logoAlt: 'maybe:fiction studios logo',
+  bios: [
+    { name: 'maybe:fiction', text: 'the org / collective' },
+    { name: 'Ishaan', text: 'artist bio' },
+    { name: 'Alex', text: 'artist bio' },
+  ],
+  cta: { text: 'See our work', href: 'productions' },
+};
+
 export const socialLinks = [
   {
     name: 'LinkedIn',

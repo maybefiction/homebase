@@ -3,16 +3,17 @@ import Layout from '../components/layout/Layout.astro';
 import PageDescription from '../components/ui/PageDescription';
 import PageTitle from '../components/ui/PageTitle';
 import Section from '../components/ui/Section';
+import { donatePage } from '../data/donate';
 ---
 
 <Layout
-  description="Support maybe:fiction."
-  title="Donate · maybe:fiction"
+  description={donatePage.metaDescription}
+  title={donatePage.metaTitle}
 >
   <Section>
     <div class="page-header">
-      <PageTitle>Donate</PageTitle>
-      <PageDescription>Help us continue to create art with our community!</PageDescription>
+      <PageTitle>{donatePage.title}</PageTitle>
+      <PageDescription>{donatePage.description}</PageDescription>
     </div>
   </Section>
 </Layout>

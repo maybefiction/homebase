@@ -1,12 +1,13 @@
 ---
 import Layout from '../../components/layout/Layout.astro';
 import About from './_About';
+import { aboutPage } from '../../data/about';
 import '../../styles/about.scss';
 ---
 
 <Layout
-  description="About maybe:fiction, the creative collective."
-  title="About · maybe:fiction"
+  description={aboutPage.metaDescription}
+  title={aboutPage.metaTitle}
 >
   <About client:load />
 </Layout>

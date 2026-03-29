@@ -1,0 +1,26 @@
+---
+import Layout from '../../components/layout/Layout.astro';
+import PageTitle from '../../components/ui/PageTitle';
+import Section from '../../components/ui/Section';
+import { productions } from '../../data/productions';
+
+export function getStaticPaths() {
+  return productions.map((p) => ({
+    params: { slug: p.slug },
+    props: p,
+  }));
+}
+
+const { title, metaDescription } = Astro.props;
+---
+
+<Layout
+  description={metaDescription}
+  title={`${title} · maybe:fiction`}
+>
+  <Section>
+    <div class="page-header">
+      <PageTitle>{title}</PageTitle>
+    </div>
+  </Section>
+</Layout>

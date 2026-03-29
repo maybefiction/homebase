@@ -4,25 +4,26 @@ import Section from '../components/ui/Section';
 import PageTitle from '../components/ui/PageTitle';
 import PageDescription from '../components/ui/PageDescription';
 import Layout from '../components/layout/Layout.astro';
+import { notFoundPage } from '../data/errors';
 import '../styles/404.scss';
 ---
 
 <Layout
-  description="Page not found. Please check the URL in the address bar and try again."
-  title="Not found · Homebase"
+  description={notFoundPage.metaDescription}
+  title={notFoundPage.metaTitle}
 >
   <Section>
     <div class="error-page">
       <div class="error-page-header">
         <PageTitle>
-          <div>404</div>
-          <div>Page not found</div>
+          <div>{notFoundPage.errorCode}</div>
+          <div>{notFoundPage.heading}</div>
         </PageTitle>
         <PageDescription>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          {notFoundPage.description}
         </PageDescription>
       </div>
-      <Button href={import.meta.env.BASE_URL}>Go back home</Button>
+      <Button href={import.meta.env.BASE_URL}>{notFoundPage.buttonText}</Button>
     </div>
   </Section>
 </Layout>

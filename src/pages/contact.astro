@@ -2,18 +2,20 @@
 import Layout from '../components/layout/Layout.astro';
 import PageTitle from '../components/ui/PageTitle';
 import Section from '../components/ui/Section';
+import { contactPage } from '../data/contact';
 ---
 
 <Layout
-  description="Get in touch with maybe:fiction."
-  title="Contact · maybe:fiction"
+  description={contactPage.metaDescription}
+  title={contactPage.metaTitle}
 >
   <Section>
     <div class="page-header">
-      <PageTitle>Contact</PageTitle>
+      <PageTitle>{contactPage.title}</PageTitle>
       <ul class="page-list">
-        <li>Contact info</li>
-        <li>Sign Up For Newsletter</li>
+        {contactPage.items.map((item) => (
+          <li>{item}</li>
+        ))}
       </ul>
     </div>
   </Section>

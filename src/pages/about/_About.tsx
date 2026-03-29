@@ -1,7 +1,7 @@
 import logo from '../../../assets/maybefiction-logo.png';
 import Button from '../../components/ui/Button';
 import Section from '../../components/ui/Section';
-import { socialLinks } from '../../data/about';
+import { aboutPage, socialLinks } from '../../data/about';
 
 const SocialLinks = () => (
   <div className="social-links">
@@ -25,20 +25,23 @@ const About = () => (
       <div className="about-profile">
         <img
           src={logo.src}
-          alt="maybe:fiction studios logo"
+          alt={aboutPage.logoAlt}
           className="about-avatar"
         />
         <SocialLinks />
       </div>
       <div className="about-content">
         <p className="about-text">
-          <b>maybe:fiction</b> — the org / collective
-          <br /><br />
-          <b>Ishaan</b> — artist bio
-          <br /><br />
-          <b>Alex</b> — artist bio
+          {aboutPage.bios.map((bio, i) => (
+            <span key={bio.name}>
+              {i > 0 && <><br /><br /></>}
+              <b>{bio.name}</b> — {bio.text}
+            </span>
+          ))}
         </p>
-        <Button href={`${import.meta.env.BASE_URL}productions`}>See our work</Button>
+        <Button href={`${import.meta.env.BASE_URL}${aboutPage.cta.href}`}>
+          {aboutPage.cta.text}
+        </Button>
       </div>
     </div>
   </Section>
