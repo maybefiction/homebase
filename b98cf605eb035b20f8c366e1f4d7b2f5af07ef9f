@@ -1,0 +1,22 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.22",
+  "base_commit_sha": "b98cf605eb035b20f8c366e1f4d7b2f5af07ef9f",
+  "prompts": {
+    "50f91fe40bccef2f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d1e84087-dbe9-4d69-ad0b-fa13b8e55d9b",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 0,
+      "total_deletions": 0,
+      "accepted_lines": 225,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/eb1c398fce60366ef58d04536d250102079aa5931b2147d10f0054f3ff7daabc"
+    }
+  }
+}
