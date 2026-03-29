@@ -1,0 +1,19 @@
+---
+import '../../styles/EventTile.scss';
+
+interface Props {
+  index: number;
+  title: string;
+}
+
+const { index, title } = Astro.props;
+---
+
+<button
+  type="button"
+  class="tile"
+  x-on:click={`selected = selected === ${index} ? null : ${index}`}
+  x-bind:aria-expanded={`selected === ${index}`}
+>
+  <span class="tile-label">{title}</span>
+</button>

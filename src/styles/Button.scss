@@ -1,0 +1,39 @@
+@use 'constants' as *;
+
+.btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  background-color: $color-stone-600;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: $color-white;
+  transition: all 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-stone-700;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $color-stone-600;
+    outline-offset: 2px;
+  }
+}
+
+.dark .btn {
+  background-color: $color-stone-300;
+  color: $color-stone-950;
+
+  &:hover {
+    background-color: $color-stone-200;
+  }
+
+  &:focus-visible {
+    outline-color: $color-stone-400;
+  }
+}

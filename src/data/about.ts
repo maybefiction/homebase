@@ -4,6 +4,7 @@
 export interface Creator {
   name: string;
   bio: string;
+  imageUrl: string;
   socialLinks: SocialLink[];
   reversedDisplay?: boolean;
 }
@@ -38,6 +39,7 @@ export const creators: Creator[] = [
   {
     name: 'Ishaan',
     bio: 'Ishaan is an interdisciplinary artist based in Brooklyn, NYC, currently dabbling within creative writing, visual art, gathering, and performance art. His work explores the interplay between imagined and real worlds. He is interested in imagining alternate ways of relating—and perhaps of being alive altogether.',
+    imageUrl: '/assets/ishaan.jpg',
     reversedDisplay: true,
     socialLinks: [
       { name: 'Instagram', url: 'https://www.instagram.com/ishishgo', icon: instagramIcon },
@@ -47,6 +49,7 @@ export const creators: Creator[] = [
   {
     name: 'Alex',
     bio: 'Artist bio placeholder',
+    imageUrl: '/assets/Alex.jpg',
     socialLinks: [
       { name: 'Instagram', url: 'https://instagram.com', icon: instagramIcon },
       { name: 'Email', url: '', icon: emailIcon },

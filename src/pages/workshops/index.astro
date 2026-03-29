@@ -5,6 +5,7 @@ import PageDescription from '../../components/ui/PageDescription.astro';
 import Gallery from '../../components/ui/Gallery.astro';
 import { workshopsPage } from '../../data/workshops';
 import { galleryMeta } from '../../data/gallery';
+import '../../styles/Workshops.scss';
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   '/assets/workshops/**/*.{jpg,jpeg,png,webp,gif}',

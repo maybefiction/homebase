@@ -1,0 +1,16 @@
+@use 'constants' as *;
+
+.page-description {
+  font-size: 1rem;
+  line-height: 28px;
+  color: rgba($color-stone-950, 0.7);
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 1.125rem;
+    line-height: 32px;
+  }
+}
+
+.dark .page-description {
+  color: rgba($color-stone-100, 0.7);
+}

@@ -12,10 +12,8 @@ import { donatePage } from '../data/donate';
   title={donatePage.metaTitle}
 >
   <Section>
-    <div class="page-header">
-      <PageTitle>{donatePage.title}</PageTitle>
-      <PageDescription>{donatePage.description}</PageDescription>
-      <Button href={donatePage.buttonHref}>{donatePage.buttonText}</Button>
-    </div>
+    <PageTitle>{donatePage.title}</PageTitle>
+    <PageDescription>{donatePage.description}</PageDescription>
+    <Button href={donatePage.buttonHref}>{donatePage.buttonText}</Button>
   </Section>
 </Layout>

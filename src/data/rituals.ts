@@ -6,7 +6,7 @@ import type { PhotoMeta } from '../components/ui/Gallery.astro';
 export interface Ritual {
   title: string;
   metaDescription: string;
-  galleryPhotos?: Record<string, { default: ImageMetadata }>;
+  galleryPath?: string;
   galleryMetadata?: Record<string, PhotoMeta>;
 }
 

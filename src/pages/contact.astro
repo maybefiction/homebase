@@ -10,13 +10,11 @@ import { contactPage } from '../data/contact';
   title={contactPage.metaTitle}
 >
   <Section>
-    <div class="page-header">
-      <PageTitle>{contactPage.title}</PageTitle>
-      <ul class="page-list">
-        {contactPage.items.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    </div>
+    <PageTitle>{contactPage.title}</PageTitle>
+    <ul class="page-list">
+      {contactPage.items.map((item) => (
+        <li>{item}</li>
+      ))}
+    </ul>
   </Section>
 </Layout>

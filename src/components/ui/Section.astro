@@ -1,8 +1,8 @@
 ---
+import '../../styles/Section.scss';
+const attrs = Astro.props;
 ---
 
-<section class="section">
-  <div class="section-inner">
-    <slot />
-  </div>
+<section class="section" {...attrs}>
+  <slot />
 </section>

@@ -3,40 +3,46 @@ import Layout from '../../components/layout/Layout.astro';
 import PageTitle from '../../components/ui/PageTitle.astro';
 import PageDescription from '../../components/ui/PageDescription.astro';
 import Section from '../../components/ui/Section.astro';
+import EventTile from '../../components/ui/EventTile.astro';
+import EventWell from '../../components/ui/EventWell.astro';
 import { productionsPage, productions } from '../../data/productions';
+
+// Vite's import.meta.glob requires a static string, so we can't build per-entry
+// glob patterns from data. Instead we glob all asset images once and filter by
+// each entry's galleryPath at build time.
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/assets/**/*.{jpg,jpeg,png,webp,gif}',
+  { eager: true }
+);
+
+function getGalleryImages(folder: string) {
+  const prefix = `/assets/${folder}/`;
+  return Object.fromEntries(
+    Object.entries(allImages).filter(([path]) => path.startsWith(prefix))
+  );
+}
 ---
 
 <Layout
   description={productionsPage.metaDescription}
   title={productionsPage.metaTitle}
 >
-  <Section>
-    <div class="page-header" x-data="{ selected: null }">
-      <PageTitle>{productionsPage.title}</PageTitle>
-      <PageDescription>{productionsPage.description}</PageDescription>
-      <ul class="page-list">
-        {productions.map((p, i) => (
-          <li>
-            <button
-              type="button"
-              class="page-list-toggle"
-              x-on:click={`selected = selected === ${i} ? null : ${i}`}
-              x-bind:aria-expanded={`selected === ${i}`}
-            >
-              {p.title}
-            </button>
-          </li>
-        ))}
-      </ul>
+  <Section x-data="{ selected: null }">
+    <PageTitle>{productionsPage.title}</PageTitle>
+    <PageDescription>{productionsPage.description}</PageDescription>
+    <div class="tile-grid">
       {productions.map((p, i) => (
-        <div
-          class="detail-well"
-          x-show={`selected === ${i}`}
-        >
-          <h3 class="detail-well-title">{p.title}</h3>
-          <p class="detail-well-description">{p.metaDescription}</p>
-        </div>
+        <EventTile index={i} title={p.title} />
       ))}
     </div>
+    {productions.map((p, i) => (
+      <EventWell
+        index={i}
+        title={p.title}
+        description={p.metaDescription}
+        galleryImages={p.galleryPath ? getGalleryImages(p.galleryPath) : undefined}
+        galleryMetadata={p.galleryMetadata}
+      />
+    ))}
   </Section>
 </Layout>

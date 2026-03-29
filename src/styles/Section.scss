@@ -1,0 +1,12 @@
+@use 'constants' as *;
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 64px 0;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 80px 0;
+  }
+}

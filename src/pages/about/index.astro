@@ -2,14 +2,7 @@
 import Layout from '../../components/layout/Layout.astro';
 import About from './_About.astro';
 import { aboutPage, creators } from '../../data/about';
-import '../../styles/about.scss';
-import ishaanImg from '../../../assets/ishaan.jpg';
-import alexImg from '../../../assets/Alex.jpg';
-
-const creatorImages: Record<string, string> = {
-  Ishaan: ishaanImg.src,
-  Alex: alexImg.src,
-};
+import '../../styles/About.scss';
 ---
 
 <Layout
@@ -27,7 +20,7 @@ const creatorImages: Record<string, string> = {
   {creators.map((creator) => (
     <About
       reversed={creator.reversedDisplay}
-      imageSrc={creatorImages[creator.name]}
+      imageSrc={creator.imageUrl}
       imageAlt={creator.name}
       name={creator.name}
       bio={creator.bio}

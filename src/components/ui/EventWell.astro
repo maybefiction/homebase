@@ -1,0 +1,27 @@
+---
+import type { ImageMetadata } from 'astro';
+import '../../styles/EventWell.scss';
+import Gallery from './Gallery.astro';
+import type { PhotoMeta } from './Gallery.astro';
+
+interface Props {
+  index: number;
+  title: string;
+  description: string;
+  galleryImages?: Record<string, { default: ImageMetadata }>;
+  galleryMetadata?: Record<string, PhotoMeta>;
+}
+
+const { index, title, description, galleryImages, galleryMetadata } = Astro.props;
+---
+
+<div
+  class="detail-well"
+  x-show={`selected === ${index}`}
+>
+  <h3 class="detail-well-title">{title}</h3>
+  <p class="detail-well-description">{description}</p>
+  {galleryImages && Object.keys(galleryImages).length > 0 && (
+    <Gallery images={galleryImages} metadata={galleryMetadata} />
+  )}
+</div>

@@ -6,7 +6,7 @@ import type { PhotoMeta } from '../components/ui/Gallery.astro';
 export interface Production {
   title: string;
   metaDescription: string;
-  galleryPhotos?: Record<string, { default: ImageMetadata }>;
+  galleryPath?: string;
   galleryMetadata?: Record<string, PhotoMeta>;
 }
 
@@ -36,6 +36,7 @@ export const productions: Production[] = [
   {
     title: 'What Clings',
     metaDescription: 'What Clings — a maybe:fiction production.',
+    galleryPath: 'what-clings',
   },
   {
     title: 'Spontaneous Attachment',
