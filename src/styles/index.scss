@@ -6,58 +6,86 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 16px;
   text-align: center;
-  gap: 2rem;
-  padding: 2rem 0;
+  padding: 32px 0;
 }
 
-.home-orbit {
+.home-link-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 12px;
   width: 100%;
 }
 
-.home-orbit-row {
+.home-link-row {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
 
-.home-orbit-row--outer {
-  max-width: 480px;
+.home-link-row--inner {
+  max-width: 720px;
 }
 
-.home-orbit-row--inner {
-  max-width: 360px;
+.home-link-row--outer {
+  max-width: 1000px;
 }
 
-.home-orbit-center {
+.home-description-center {
   text-align: center;
 }
 
 .home-logo img {
-  max-width: 220px;
+  max-width: 280px;
   width: 100%;
   height: auto;
+  margin-top: 0;
+  transition: filter 0.25s ease;
+
+  &:hover {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.8));
+  }
 
   @media (min-width: $breakpoint-sm) {
-    max-width: 280px;
+    max-width: 360px;
+    margin-top: -200px;
   }
 }
 
-.home-orbit-link {
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  transition: all 0.2s;
+.sticky-note-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  font-family: 'Mynerve', cursive;
+  font-size: 1.25rem;
+  font-weight: 400;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.25s ease, filter 0.25s ease;
 
-  &:hover {
-    text-decoration: underline;
+  .home-link-row &:first-child:hover {
+    transform: scale(1.15) rotate(-4deg);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+  }
+
+  .home-link-row &:last-child:hover {
+    transform: scale(1.15) rotate(4deg);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+  }
+
+  .dark & {
+    color: $color-stone-950;
+    opacity: 0.8;
   }
 
   @media (min-width: $breakpoint-sm) {
-    font-size: 1.125rem;
+    width: 280px;
+    height: 280px;
+    font-size: 1.75rem;
   }
 }

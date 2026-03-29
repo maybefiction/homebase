@@ -1,7 +1,13 @@
 ---
+import '@fontsource/mynerve/latin-400.css';
+import stickyNote1 from '../../assets/sticky-note-1.png';
+import stickyNote2 from '../../assets/sticky-note-2.png';
+import stickyNote3 from '../../assets/sticky-note-3.png';
+import stickyNote4 from '../../assets/sticky-note-4.png';
+import logo from '../../assets/maybefiction-logo.png';
 import Layout from '../components/layout/Layout.astro';
 import PageDescription from '../components/ui/PageDescription';
-import PageTitle from '../components/ui/PageTitle';
+import StickyNoteLink from '../components/ui/StickyNoteLink';
 import '../styles/index.scss';
 
 const base = import.meta.env.BASE_URL;
@@ -12,25 +18,25 @@ const base = import.meta.env.BASE_URL;
   title="maybe:fiction"
 >
   <div class="home-main">
-    <div class="home-orbit">
-      <div class="home-orbit-center">
-        <PageTitle>maybe:fiction</PageTitle>
-        <PageDescription>transforming art into a social practice</PageDescription>
+    <div class="home-link-section">
+      <div class="home-link-row home-link-row--inner">
+        <StickyNoteLink href={`${base}/about`} image={stickyNote1}>About</StickyNoteLink>
+        <StickyNoteLink href={`${base}/workshops`} image={stickyNote4}>Workshops</StickyNoteLink>
       </div>
-      <div class="home-orbit-row home-orbit-row--inner">
-        <a href={`${base}about`} class="home-orbit-link">About</a>
-        <a href={`${base}productions`} class="home-orbit-link">Productions</a>
-      </div>
-      <div class="home-orbit-row home-orbit-row--outer">
-        <a href={`${base}rituals`} class="home-orbit-link">Rituals</a>
-        <a href={`${base}workshops`} class="home-orbit-link">Workshops</a>
+      <div class="home-link-row home-link-row--outer">
+        <StickyNoteLink href={`${base}/productions`} image={stickyNote2}>Productions</StickyNoteLink>
+        <StickyNoteLink href={`${base}/rituals`} image={stickyNote3}>Rituals</StickyNoteLink>
       </div>
     </div>
     <div class="home-logo">
       <img
-        src={`${import.meta.env.BASE_URL}maybefiction-logo.png`}
+        src={logo.src}
         alt="maybe:fiction studios logo"
       />
+    </div>
+    <div class="home-description-center">
+      <!-- <PageTitle>maybe:fiction</PageTitle> -->
+      <PageDescription>transforming art into a social practice</PageDescription>
     </div>
   </div>
 </Layout>

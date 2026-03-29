@@ -1,16 +1,14 @@
 ---
+import '../../styles/header.scss';
+
 const base = import.meta.env.BASE_URL;
 const links = [
   { name: 'Contact', href: `${base}contact` },
-  { name: 'Donation', href: `${base}donation` },
+  { name: 'Donate', href: `${base}donate` },
 ];
 ---
 
-<header
-  x-data="{ open: false }"
-  class="header"
-  :class="{ 'is-open': open, 'header': !(open) }"
->
+<header class="header">
   <div class="header-inner">
     <div class="header-brand">
       <a href={import.meta.env.BASE_URL}>
@@ -52,64 +50,58 @@ const links = [
         </svg>
       </button>
 
-      <button
-        type="button"
-        class="header-btn header-btn--menu"
-        @click="open = !open"
-        @mousedown="if (open) $event.preventDefault()"
-        aria-controls="website-menu"
-        aria-expanded="false"
-        :aria-expanded="open.toString()"
-      >
-        <span class="sr-only">Toggle menu</span>
-        <svg
-          x-cloak
-          :class="{ 'hidden': open, 'block': !(open) }"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
+      <div class="header-menu-wrap" x-data="{ open: false }" @click.outside="open = false">
+        <button
+          type="button"
+          class="header-btn header-btn--menu"
+          @click="open = !open"
+          aria-controls="website-menu"
+          :aria-expanded="open.toString()"
         >
-          <path d="M19 8H5V10H19V8ZM19 14H5V16H19V14Z"></path>
-        </svg>
-        <svg
-          x-cloak
-          :class="{ 'block': open, 'hidden': !(open) }"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path
-            d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
-          ></path>
-        </svg>
-      </button>
-    </div>
-  </div>
+          <span class="sr-only">Toggle menu</span>
+          <svg
+            x-cloak
+            :class="{ 'hidden': open, 'block': !(open) }"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path d="M19 8H5V10H19V8ZM19 14H5V16H19V14Z"></path>
+          </svg>
+          <svg
+            x-cloak
+            :class="{ 'block': open, 'hidden': !(open) }"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+            ></path>
+          </svg>
+        </button>
 
-  <div
-    class="header-menu"
-    id="website-menu"
-    x-cloak
-    x-show="open"
-    x-collapse
-    x-collapse.duration.500ms
-  >
-    <div class="header-menu-inner">
-      <nav class="header-nav">
-        {
-          links.map((link) => (
-            <a href={link.href} class="header-nav-link">
-              <div>
-                <div>
-                  <span>{link.name}</span>
-                </div>
-              </div>
-            </a>
-          ))
-        }
-      </nav>
+        <nav
+          class="header-dropdown"
+          id="website-menu"
+          x-cloak
+          x-show="open"
+          x-transition:enter="dropdown-enter"
+          x-transition:enter-start="dropdown-enter-start"
+          x-transition:enter-end="dropdown-enter-end"
+          x-transition:leave="dropdown-leave"
+          x-transition:leave-start="dropdown-leave-start"
+          x-transition:leave-end="dropdown-leave-end"
+        >
+          {
+            links.map((link) => (
+              <a href={link.href} class="header-dropdown-link">{link.name}</a>
+            ))
+          }
+        </nav>
+      </div>
     </div>
   </div>
 </header>

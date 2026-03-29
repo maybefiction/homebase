@@ -1,6 +1,7 @@
-import { socialLinks } from '../../data/about';
+import logo from '../../../assets/maybefiction-logo.png';
 import Button from '../../components/ui/Button';
 import Section from '../../components/ui/Section';
+import { socialLinks } from '../../data/about';
 
 const SocialLinks = () => (
   <div className="social-links">
@@ -23,7 +24,7 @@ const About = () => (
     <div className="about-grid">
       <div className="about-profile">
         <img
-          src={`${import.meta.env.BASE_URL}maybefiction-logo.png`}
+          src={logo.src}
           alt="maybe:fiction studios logo"
           className="about-avatar"
         />

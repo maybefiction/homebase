@@ -2,11 +2,11 @@
 
 .about-grid {
   display: grid;
-  gap: 3rem;
+  gap: 48px;
 
   @media (min-width: $breakpoint-lg) {
     grid-template-columns: 1fr 2fr;
-    gap: 2rem;
+    gap: 32px;
   }
 }
 
@@ -14,19 +14,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 24px;
 }
 
 .about-avatar {
-  height: 16rem;
-  width: 18.5rem;
+  height: 256px;
+  width: 296px;
   border-radius: 50%;
   object-fit: cover;
   margin: 0 auto;
 
   @media (min-width: $breakpoint-lg) {
-    height: 18rem;
-    width: 18rem;
+    height: 288px;
+    width: 288px;
     margin: 0;
   }
 }
@@ -34,15 +34,15 @@
 .social-links {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 16px;
 }
 
 .social-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem;
-  height: 2rem;
+  width: 32px;
+  height: 32px;
   border-radius: 9999px;
   transition: all 0.2s;
   color: rgba($color-stone-950, 0.6);
@@ -53,8 +53,8 @@
   }
 
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -72,11 +72,11 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 2rem;
-  gap: 2rem;
+  padding-top: 32px;
+  gap: 32px;
 
   @media (min-width: $breakpoint-sm) {
-    gap: 2.5rem;
+    gap: 40px;
   }
 
   @media (min-width: $breakpoint-lg) {
@@ -87,12 +87,12 @@
 
 .about-text {
   font-size: 1rem;
-  line-height: 1.75rem;
+  line-height: 28px;
   color: rgba($color-stone-950, 0.7);
 
   @media (min-width: $breakpoint-sm) {
     font-size: 1.125rem;
-    line-height: 2rem;
+    line-height: 32px;
   }
 }
 
