@@ -1,0 +1,123 @@
+src/data/donate.ts
+  50f91fe40bccef2f 1-7
+src/components/ui/PageTitle.astro
+  544991e8a80e8f7b 1-6
+src/pages/rituals/index.astro
+  544991e8a80e8f7b 3-5
+  50f91fe40bccef2f 14,18-28,31-39
+src/pages/donate.astro
+  544991e8a80e8f7b 4-6
+src/data/about.ts
+  79be9c47571ba490 3-7,11-16,18-20,23,30-32,37,39,41-42,44-45,48-51,53
+src/components/ui/StickyNoteLink.astro
+  544991e8a80e8f7b 1-16
+src/components/ui/Button.astro
+  544991e8a80e8f7b 1-11
+src/data/workshops.ts
+  50f91fe40bccef2f 1-7
+src/components/ui/Gallery.astro
+  544991e8a80e8f7b 2-16
+.github/workflows/static.yml
+  6aa023bf0743506e 34-42,48
+src/styles/_base.scss
+  50f91fe40bccef2f 111-116,239-306
+src/components/ui/Section.astro
+  544991e8a80e8f7b 1-4,6-8
+  50f91fe40bccef2f 5
+src/data/contact.ts
+  50f91fe40bccef2f 1-7
+src/data/productions.ts
+  50f91fe40bccef2f 1-5,9-10,14-17,26
+src/pages/404.astro
+  544991e8a80e8f7b 2-5
+src/data/rituals.ts
+  50f91fe40bccef2f 1-5,9-10,14-17,26
+src/data/errors.ts
+  50f91fe40bccef2f 1-7
+src/data/home.ts
+  50f91fe40bccef2f 1-7
+src/pages/about/_About.astro
+  544991e8a80e8f7b 1-4,6,16-17,19-22,24-25,27-54
+  79be9c47571ba490 5,7-15,18,23,26
+src/styles/about.scss
+  79be9c47571ba490 11-24
+src/pages/index.astro
+  544991e8a80e8f7b 9-10
+src/pages/contact.astro
+  544991e8a80e8f7b 3-4
+src/pages/about/index.astro
+  544991e8a80e8f7b 3
+  79be9c47571ba490 4,6-12,19-36
+src/components/ui/PageDescription.astro
+  544991e8a80e8f7b 1-6
+src/pages/workshops/index.astro
+  544991e8a80e8f7b 3-4
+src/data/gallery.ts
+  50f91fe40bccef2f 1,5-8
+src/pages/productions/index.astro
+  544991e8a80e8f7b 3-5
+  50f91fe40bccef2f 14,18-28,31-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.1.22",
+  "base_commit_sha": "653dc1b574cf32a0e17698a88a1f755e9a90003d",
+  "prompts": {
+    "50f91fe40bccef2f": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "d1e84087-dbe9-4d69-ad0b-fa13b8e55d9b",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 197,
+      "total_deletions": 84,
+      "accepted_lines": 187,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/d1657a76f67299955b257805ab9c441b1fbcc7a30dba9862810d4545d0b45ef2"
+    },
+    "544991e8a80e8f7b": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "93266410-70fb-45c8-b868-98aff50d87f5",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 138,
+      "total_deletions": 150,
+      "accepted_lines": 126,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/420133b921fca3bc962aaa883fbf7562cd8b84e8354b94aab6960e71dce80727"
+    },
+    "6aa023bf0743506e": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "1d7b580a-a5ce-4f7a-ac0b-4c88228cb65c",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 10,
+      "total_deletions": 2,
+      "accepted_lines": 10,
+      "overriden_lines": 0,
+      "messages_url": "https://usegitai.com/cas/ea7e3ec3de3d3bceecb5de770ef0a5d27cd4f88ac9867bb8d93213365ff13026"
+    },
+    "79be9c47571ba490": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "a3596ccc-6bbf-4343-a5f6-a80522708e50",
+        "model": "claude-4.6-opus-high-thinking"
+      },
+      "human_author": "Jennifer Long <jennifer@duolingo.com>",
+      "messages": [],
+      "total_additions": 155,
+      "total_deletions": 82,
+      "accepted_lines": 118,
+      "overriden_lines": 3,
+      "messages_url": "https://usegitai.com/cas/f05122782f9abb9e66237764e30445f43ac8becf86486c5ca543724f8716eebd"
+    }
+  }
+}
