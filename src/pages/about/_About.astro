@@ -1,0 +1,54 @@
+---
+import logo from '../../../assets/maybefiction-logo.png';
+import Button from '../../components/ui/Button.astro';
+import Section from '../../components/ui/Section.astro';
+import type { SocialLink } from '../../data/about';
+
+interface Props {
+  imageShape?: 'square' | 'circle';
+  reversed?: boolean;
+  imageSrc?: string;
+  imageAlt: string;
+  name: string;
+  bio: string;
+  socialLinks: SocialLink[];
+  cta?: { text: string; href: string };
+}
+
+const { imageShape = 'circle', reversed = false, imageSrc, imageAlt, name, bio, socialLinks, cta } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<Section>
+  <div class={`about-grid${reversed ? ' about-grid--reversed' : ''}`}>
+    <div class="about-profile">
+      <img
+        src={imageSrc ?? logo.src}
+        alt={imageAlt}
+        class={`about-avatar about-avatar--${imageShape}`}
+      />
+      <div class="social-links">
+        {socialLinks.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+            aria-label={link.name}
+            set:html={link.icon}
+          />
+        ))}
+      </div>
+    </div>
+    <div class="about-content">
+      <p class="about-text">
+        <b>{name}</b> — {bio}
+      </p>
+      {cta && (
+        <Button href={`${base}${cta.href}`}>
+          {cta.text}
+        </Button>
+      )}
+    </div>
+  </div>
+</Section>

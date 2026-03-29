@@ -1,3 +1,10 @@
+// Workshops page - Static Content
+
+
+
+// EDIT CONTENT BELOW
+
+// General page content
 export const workshopsPage = {
   title: 'Workshops',
   metaTitle: 'Workshops · maybe:fiction',

@@ -6,37 +6,50 @@ import stickyNote3 from '../../assets/sticky-note-3.png';
 import stickyNote4 from '../../assets/sticky-note-4.png';
 import logo from '../../assets/maybefiction-logo.png';
 import Layout from '../components/layout/Layout.astro';
-import PageDescription from '../components/ui/PageDescription';
-import StickyNoteLink from '../components/ui/StickyNoteLink';
+import PageDescription from '../components/ui/PageDescription.astro';
+import StickyNoteLink from '../components/ui/StickyNoteLink.astro';
+import { homePage } from '../data/home';
 import '../styles/index.scss';
 
 const base = import.meta.env.BASE_URL;
+const stickyNotes = [stickyNote1, stickyNote2, stickyNote3, stickyNote4];
+const imageMap: Record<string, ImageMetadata> = Object.fromEntries(
+  homePage.navLinks.map((link, i) => [link.href, stickyNotes[i]])
+);
+
+const innerLinks = homePage.navLinks.filter((l) => l.row === 'inner');
+const outerLinks = homePage.navLinks.filter((l) => l.row === 'outer');
 ---
 
 <Layout
-  description="maybe:fiction — a creative collective."
-  title="maybe:fiction"
+  description={homePage.metaDescription}
+  title={homePage.metaTitle}
 >
   <div class="home-main">
     <div class="home-link-section">
       <div class="home-link-row home-link-row--inner">
-        <StickyNoteLink href={`${base}/about`} image={stickyNote1}>About</StickyNoteLink>
-        <StickyNoteLink href={`${base}/workshops`} image={stickyNote4}>Workshops</StickyNoteLink>
+        {innerLinks.map((link) => (
+          <StickyNoteLink href={`${base}/${link.href}`} image={imageMap[link.href]}>
+            {link.label}
+          </StickyNoteLink>
+        ))}
       </div>
       <div class="home-link-row home-link-row--outer">
-        <StickyNoteLink href={`${base}/productions`} image={stickyNote2}>Productions</StickyNoteLink>
-        <StickyNoteLink href={`${base}/rituals`} image={stickyNote3}>Rituals</StickyNoteLink>
+        {outerLinks.map((link) => (
+          <StickyNoteLink href={`${base}/${link.href}`} image={imageMap[link.href]}>
+            {link.label}
+          </StickyNoteLink>
+        ))}
       </div>
     </div>
     <div class="home-logo">
       <img
         src={logo.src}
-        alt="maybe:fiction studios logo"
+        alt={homePage.logoAlt}
       />
     </div>
     <div class="home-description-center">
-      <!-- <PageTitle>maybe:fiction</PageTitle> -->
-      <PageDescription>transforming art into a social practice</PageDescription>
+      <PageDescription>{homePage.tagline}</PageDescription>
     </div>
   </div>
 </Layout>

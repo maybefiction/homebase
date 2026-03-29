@@ -1,9 +1,20 @@
+// Productions page - Static Content
+
+
+import type { PhotoMeta } from '../components/ui/Gallery.astro';
+
 export interface Production {
-  slug: string;
   title: string;
   metaDescription: string;
+  galleryPhotos?: Record<string, { default: ImageMetadata }>;
+  galleryMetadata?: Record<string, PhotoMeta>;
 }
 
+
+
+// EDIT CONTENT BELOW
+
+// General page content
 export const productionsPage = {
   title: 'Productions',
   metaTitle: 'Productions · maybe:fiction',
@@ -11,24 +22,22 @@ export const productionsPage = {
   description: 'Description goes here!',
 };
 
+
+// Production entries
 export const productions: Production[] = [
   {
-    slug: 'jornada-de-puertos-abiertas',
     title: 'Jornada De Puertos Abiertas',
     metaDescription: 'Jornada De Puertos Abiertas — a maybe:fiction production.',
   },
   {
-    slug: 'friend-knocks',
     title: 'When a Friend Knocks',
     metaDescription: 'When a Friend Knocks — a maybe:fiction production.',
   },
   {
-    slug: 'what-clings',
     title: 'What Clings',
     metaDescription: 'What Clings — a maybe:fiction production.',
   },
   {
-    slug: 'spontaneous-attachment',
     title: 'Spontaneous Attachment',
     metaDescription: 'Spontaneous Attachment — a maybe:fiction production.',
   },

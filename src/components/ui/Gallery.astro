@@ -1,0 +1,197 @@
+---
+/**
+ * Reusable image gallery with justified layout, tag filtering, and Fancybox lightbox.
+ *
+ * Props:
+ *   images   – Result of import.meta.glob<{ default: ImageMetadata }>() on an image folder.
+ *   metadata – Optional map of filename → { date, location, caption, tags } for overlays/sidebar.
+ *
+ * Usage:
+ *   const images = import.meta.glob<{ default: ImageMetadata }>(
+ *     '/assets/my-folder/**\/*.{jpg,jpeg,png,webp,gif}',
+ *     { eager: true }
+ *   );
+ *   <Gallery images={images} metadata={myMeta} />
+ */
+
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import '@fancyapps/ui/dist/fancybox/fancybox.sidebar.css';
+import '../../styles/workshops.scss';
+
+export interface PhotoMeta {
+  date?: string;
+  location?: string;
+  caption?: string;
+  tags?: string[];
+}
+
+interface GalleryImage {
+  src: string;
+  width: number;
+  height: number;
+  filename: string;
+  date: string;
+  location: string;
+  caption: string;
+  tags: string[];
+  formattedDate: string;
+}
+
+interface Props {
+  images: Record<string, { default: ImageMetadata }>;
+  metadata?: Record<string, PhotoMeta>;
+}
+
+const { images, metadata = {} } = Astro.props;
+
+const formatDate = (dateStr: string): string =>
+  dateStr
+    ? new Date(dateStr + 'T00:00:00').toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : '';
+
+const galleryImages: GalleryImage[] = Object.entries(images)
+  .map(([path, mod]) => {
+    const filename = path.split('/').pop()!;
+    const meta = metadata[filename] ?? {};
+    const img = mod.default;
+    return {
+      src: img.src,
+      width: img.width,
+      height: img.height,
+      filename,
+      date: meta.date ?? '',
+      location: meta.location ?? '',
+      caption: meta.caption ?? '',
+      tags: meta.tags ?? [],
+      formattedDate: formatDate(meta.date ?? ''),
+    };
+  })
+  .sort((a, b) => b.date.localeCompare(a.date));
+
+const tagCounts: [string, number][] = (() => {
+  const counts: Record<string, number> = {};
+  for (const img of galleryImages) {
+    for (const tag of img.tags) {
+      counts[tag] = (counts[tag] || 0) + 1;
+    }
+  }
+  return Object.entries(counts).sort(([a], [b]) => a.localeCompare(b));
+})();
+
+const buildSidebarHtml = (photo: GalleryImage): string => {
+  const parts: string[] = [];
+  if (photo.caption) {
+    parts.push(`<p class="sidebar-caption">${photo.caption.replace(/\n/g, '<br>')}</p>`);
+  }
+  if (photo.location) {
+    parts.push(`<p class="sidebar-location">${photo.location}</p>`);
+  }
+  if (photo.formattedDate) {
+    parts.push(`<p class="sidebar-date">${photo.formattedDate}</p>`);
+  }
+  if (photo.tags.length > 0) {
+    const tags = photo.tags.map((t) => `<span class="sidebar-tag">${t}</span>`).join('');
+    parts.push(`<div class="sidebar-tags">${tags}</div>`);
+  }
+  return parts.join('');
+};
+---
+
+{
+  galleryImages.length > 0 ? (
+    <div x-data="{ selectedTag: '' }">
+      {tagCounts.length > 0 && (
+        <section class="filter-section">
+          <button
+            type="button"
+            class="filter-btn"
+            :class="{ 'active': selectedTag === '' }"
+            @click="selectedTag = ''"
+          >
+            All <span class="filter-count">{galleryImages.length}</span>
+          </button>
+          {tagCounts.map(([tag, count]) => (
+            <button
+              type="button"
+              class="filter-btn"
+              :class={`{ 'active': selectedTag === '${tag}' }`}
+              @click={`selectedTag = selectedTag === '${tag}' ? '' : '${tag}'`}
+            >
+              {tag} <span class="filter-count">{count}</span>
+            </button>
+          ))}
+        </section>
+      )}
+
+      <section class="justified-gallery" id="gallery">
+        {galleryImages.map((photo, index) => (
+          <a
+            style={`--width: ${photo.width}; --height: ${photo.height};`}
+            href={photo.src}
+            target="_blank"
+            data-fancybox="gallery"
+            data-caption={buildSidebarHtml(photo)}
+            data-tags={JSON.stringify(photo.tags)}
+            x-show="selectedTag === '' || JSON.parse($el.dataset.tags).includes(selectedTag)"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0"
+            x-transition:enter-end="opacity-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave-end="opacity-0"
+          >
+            <img
+              src={photo.src}
+              alt={photo.caption || ''}
+              loading={index < 3 ? 'eager' : 'lazy'}
+            />
+            <div class="overlay">
+              {photo.caption && <span class="overlay-caption">{photo.caption}</span>}
+              <div class="overlay-meta">
+                {photo.location && <span class="overlay-location">{photo.location}</span>}
+                {photo.formattedDate && <span class="overlay-date">{photo.formattedDate}</span>}
+              </div>
+            </div>
+          </a>
+        ))}
+      </section>
+    </div>
+  ) : (
+    <section>
+      <p class="photo-empty">Coming soon.</p>
+    </section>
+  )
+}
+
+<script>
+  import { Fancybox } from '@fancyapps/ui/dist/fancybox/';
+  import { Sidebar } from '@fancyapps/ui/dist/fancybox/fancybox.sidebar.js';
+
+  Fancybox.bind('[data-fancybox]', {
+    theme: 'auto',
+    plugins: { Sidebar },
+    mainStyle: {
+      '--f-button-width': '44px',
+      '--f-button-height': '44px',
+      '--f-button-border-radius': '50%',
+      '--f-toolbar-padding': '16px',
+      '--sidebar-width': 'clamp(200px, 30vw, 400px)',
+      '--sidebar-padding': '1.5rem',
+    },
+    Carousel: {
+      Arrows: false,
+      Toolbar: {
+        display: {
+          left: [],
+          middle: [],
+          right: ['sidebar', 'close'],
+        },
+      },
+      transition: 'slide',
+    },
+  });
+</script>

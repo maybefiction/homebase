@@ -8,6 +8,20 @@
     grid-template-columns: 1fr 2fr;
     gap: 32px;
   }
+
+  &--reversed {
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: 2fr 1fr;
+
+      .about-profile {
+        order: 2;
+      }
+
+      .about-content {
+        order: 1;
+      }
+    }
+  }
 }
 
 .about-profile {
@@ -20,7 +34,6 @@
 .about-avatar {
   height: 256px;
   width: 296px;
-  border-radius: 50%;
   object-fit: cover;
   margin: 0 auto;
 
@@ -28,6 +41,14 @@
     height: 288px;
     width: 288px;
     margin: 0;
+  }
+
+  &--circle {
+    border-radius: 50%;
+  }
+
+  &--square {
+    border-radius: 8px;
   }
 }
 

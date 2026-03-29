@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  image: ImageMetadata;
+}
+
+const { href, image } = Astro.props;
+---
+
+<a
+  href={href}
+  class="sticky-note-link"
+  style={`background-image: url('${image.src}')`}
+>
+  <slot />
+</a>

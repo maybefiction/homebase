@@ -1,11 +1,9 @@
 ---
 import Layout from '../../components/layout/Layout.astro';
-import PageTitle from '../../components/ui/PageTitle';
-import PageDescription from '../../components/ui/PageDescription';
-import Section from '../../components/ui/Section';
+import PageTitle from '../../components/ui/PageTitle.astro';
+import PageDescription from '../../components/ui/PageDescription.astro';
+import Section from '../../components/ui/Section.astro';
 import { productionsPage, productions } from '../../data/productions';
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
@@ -13,14 +11,32 @@ const base = import.meta.env.BASE_URL;
   title={productionsPage.metaTitle}
 >
   <Section>
-    <div class="page-header">
+    <div class="page-header" x-data="{ selected: null }">
       <PageTitle>{productionsPage.title}</PageTitle>
       <PageDescription>{productionsPage.description}</PageDescription>
       <ul class="page-list">
-        {productions.map((p) => (
-          <li><a href={`${base}productions/${p.slug}`}>{p.title}</a></li>
+        {productions.map((p, i) => (
+          <li>
+            <button
+              type="button"
+              class="page-list-toggle"
+              x-on:click={`selected = selected === ${i} ? null : ${i}`}
+              x-bind:aria-expanded={`selected === ${i}`}
+            >
+              {p.title}
+            </button>
+          </li>
         ))}
       </ul>
+      {productions.map((p, i) => (
+        <div
+          class="detail-well"
+          x-show={`selected === ${i}`}
+        >
+          <h3 class="detail-well-title">{p.title}</h3>
+          <p class="detail-well-description">{p.metaDescription}</p>
+        </div>
+      ))}
     </div>
   </Section>
 </Layout>

@@ -108,6 +108,12 @@ img {
   }
 }
 
+.section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 // Page Title
 
 .page-title {
@@ -229,4 +235,72 @@ img {
   a:hover {
     color: $color-stone-200;
   }
+}
+
+// Page list toggle (replaces <a> for inline detail display)
+
+.page-list-toggle {
+  all: unset;
+  cursor: pointer;
+  text-decoration: underline;
+  color: inherit;
+
+  &:hover {
+    color: $color-stone-950;
+  }
+
+  &[aria-expanded="true"] {
+    font-weight: 500;
+    color: $color-stone-950;
+  }
+}
+
+.dark .page-list-toggle {
+  &:hover {
+    color: $color-stone-200;
+  }
+
+  &[aria-expanded="true"] {
+    color: $color-stone-200;
+  }
+}
+
+// Detail well (inline content panel)
+
+.detail-well {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: rgba($color-stone-950, 0.04);
+  border: 1px solid rgba($color-stone-950, 0.08);
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-sm) {
+    padding: 32px;
+  }
+}
+
+.dark .detail-well {
+  background-color: rgba($color-stone-100, 0.05);
+  border-color: rgba($color-stone-100, 0.1);
+}
+
+.detail-well-title {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 1.25rem;
+  }
+}
+
+.detail-well-description {
+  font-size: 1rem;
+  line-height: 28px;
+  color: rgba($color-stone-950, 0.7);
+}
+
+.dark .detail-well-description {
+  color: rgba($color-stone-100, 0.7);
 }

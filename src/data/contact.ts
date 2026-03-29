@@ -1,3 +1,10 @@
+// Contact page - Static Content
+
+
+
+// EDIT CONTENT BELOW
+
+// General page content
 export const contactPage = {
   title: 'Contact',
   metaTitle: 'Contact · maybe:fiction',

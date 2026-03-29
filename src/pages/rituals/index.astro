@@ -1,11 +1,9 @@
 ---
 import Layout from '../../components/layout/Layout.astro';
-import PageTitle from '../../components/ui/PageTitle';
-import PageDescription from '../../components/ui/PageDescription';
-import Section from '../../components/ui/Section';
+import PageTitle from '../../components/ui/PageTitle.astro';
+import PageDescription from '../../components/ui/PageDescription.astro';
+import Section from '../../components/ui/Section.astro';
 import { ritualsPage, rituals } from '../../data/rituals';
-
-const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
@@ -13,14 +11,32 @@ const base = import.meta.env.BASE_URL;
   title={ritualsPage.metaTitle}
 >
   <Section>
-    <div class="page-header">
+    <div class="page-header" x-data="{ selected: null }">
       <PageTitle>{ritualsPage.title}</PageTitle>
       <PageDescription>{ritualsPage.description}</PageDescription>
       <ul class="page-list">
-        {rituals.map((r) => (
-          <li><a href={`${base}rituals/${r.slug}`}>{r.title}</a></li>
+        {rituals.map((r, i) => (
+          <li>
+            <button
+              type="button"
+              class="page-list-toggle"
+              x-on:click={`selected = selected === ${i} ? null : ${i}`}
+              x-bind:aria-expanded={`selected === ${i}`}
+            >
+              {r.title}
+            </button>
+          </li>
         ))}
       </ul>
+      {rituals.map((r, i) => (
+        <div
+          class="detail-well"
+          x-show={`selected === ${i}`}
+        >
+          <h3 class="detail-well-title">{r.title}</h3>
+          <p class="detail-well-description">{r.metaDescription}</p>
+        </div>
+      ))}
     </div>
   </Section>
 </Layout>

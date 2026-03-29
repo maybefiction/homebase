@@ -1,9 +1,20 @@
+// Rituals page - Static Content
+
+
+import type { PhotoMeta } from '../components/ui/Gallery.astro';
+
 export interface Ritual {
-  slug: string;
   title: string;
   metaDescription: string;
+  galleryPhotos?: Record<string, { default: ImageMetadata }>;
+  galleryMetadata?: Record<string, PhotoMeta>;
 }
 
+
+
+// EDIT CONTENT BELOW
+
+// General page content
 export const ritualsPage = {
   title: 'Rituals / Gatherings',
   metaTitle: 'Rituals · maybe:fiction',
@@ -11,14 +22,14 @@ export const ritualsPage = {
   description: 'Description goes here!',
 };
 
+
+// Ritual entries
 export const rituals: Ritual[] = [
   {
-    slug: 'just-give-me-a-moment',
     title: 'Just Give Me A Moment',
     metaDescription: 'Just Give Me A Moment — a maybe:fiction gathering.',
   },
   {
-    slug: 'eclectic-pathetic',
     title: 'Eclectic Pathetic',
     metaDescription: 'Eclectic Pathetic — a maybe:fiction gathering.',
   },

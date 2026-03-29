@@ -1,13 +1,37 @@
 ---
 import Layout from '../../components/layout/Layout.astro';
-import About from './_About';
-import { aboutPage } from '../../data/about';
+import About from './_About.astro';
+import { aboutPage, creators } from '../../data/about';
 import '../../styles/about.scss';
+import ishaanImg from '../../../assets/ishaan.jpg';
+import alexImg from '../../../assets/Alex.jpg';
+
+const creatorImages: Record<string, string> = {
+  Ishaan: ishaanImg.src,
+  Alex: alexImg.src,
+};
 ---
 
 <Layout
   description={aboutPage.metaDescription}
   title={aboutPage.metaTitle}
 >
-  <About client:load />
+  <About
+    imageShape="square"
+    imageAlt={aboutPage.logoAlt}
+    name="maybe:fiction"
+    bio={aboutPage.bio}
+    socialLinks={aboutPage.socialLinks}
+    cta={aboutPage.cta}
+  />
+  {creators.map((creator) => (
+    <About
+      reversed={creator.reversedDisplay}
+      imageSrc={creatorImages[creator.name]}
+      imageAlt={creator.name}
+      name={creator.name}
+      bio={creator.bio}
+      socialLinks={creator.socialLinks}
+    />
+  ))}
 </Layout>
