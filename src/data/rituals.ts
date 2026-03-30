@@ -1,7 +1,7 @@
 // Rituals page - Static Content
 
 
-import type { PhotoMeta } from '../components/ui/Gallery.astro';
+import type { PhotoMeta } from '../data/gallery';
 
 export interface Ritual {
   title: string;

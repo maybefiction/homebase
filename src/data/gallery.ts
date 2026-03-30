@@ -1,9 +1,11 @@
 // Gallery - Static Content
 
-
-import type { PhotoMeta } from '../components/ui/Gallery.astro';
-
-
+export interface PhotoMeta {
+    date?: string;
+    location?: string;
+    caption?: string;
+    tags?: string[];
+  }
 
 // EDIT CONTENT BELOW
 

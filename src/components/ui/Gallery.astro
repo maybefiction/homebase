@@ -17,13 +17,8 @@
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import '@fancyapps/ui/dist/fancybox/fancybox.sidebar.css';
 import '../../styles/Gallery.scss';
+import type { PhotoMeta } from '../../data/gallery';
 
-export interface PhotoMeta {
-  date?: string;
-  location?: string;
-  caption?: string;
-  tags?: string[];
-}
 
 interface GalleryImage {
   src: string;
@@ -169,7 +164,7 @@ const buildSidebarHtml = (photo: GalleryImage): string => {
 
 <script>
   import { Fancybox } from '@fancyapps/ui/dist/fancybox/';
-  import { Sidebar } from '@fancyapps/ui/dist/fancybox/fancybox.sidebar.js';
+import { Sidebar } from '@fancyapps/ui/dist/fancybox/fancybox.sidebar.js';
 
   Fancybox.bind('[data-fancybox]', {
     theme: 'auto',
