@@ -1,8 +1,8 @@
-// Rituals page - Static Content
+// Gatherings page - Static Content
 
 import type { PhotoMeta } from '../data/gallery';
 
-export interface Ritual {
+export interface Gathering {
   title: string;
   metaDescription: string;
   galleryPath?: string;
@@ -12,15 +12,15 @@ export interface Ritual {
 // EDIT CONTENT BELOW
 
 // General page content
-export const ritualsPage = {
-  title: 'Rituals / Gatherings',
-  metaTitle: 'Rituals · maybe:fiction',
+export const gatheringsPage = {
+  title: 'Gatherings',
+  metaTitle: 'Gatherings · maybe:fiction',
   metaDescription: 'Description goes here!',
   description: 'Description goes here!',
 };
 
-// Ritual entries
-export const rituals: Ritual[] = [
+// Gathering entries
+export const gatherings: Gathering[] = [
   {
     title: 'Just Give Me A Moment',
     metaDescription: 'Just Give Me A Moment — a maybe:fiction gathering.',

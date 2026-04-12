@@ -33,7 +33,7 @@ All text content lives in simple data files inside **`src/data/`**, and image co
 | [Home](#home)                | [`src/data/home.ts`](src/data/home.ts)               | —                          |
 | [About](#about)              | [`src/data/about.ts`](src/data/about.ts)             | `assets/` (profile images) |
 | [Productions](#productions)  | [`src/data/productions.ts`](src/data/productions.ts) | `assets/<folder-name>/`    |
-| [Rituals](#rituals)          | [`src/data/rituals.ts`](src/data/rituals.ts)         | `assets/<folder-name>/`    |
+| [Gatherings](#gatherings)    | [`src/data/gatherings.ts`](src/data/gatherings.ts)   | `assets/<folder-name>/`    |
 | [Workshops](#workshops)      | [`src/data/workshops.ts`](src/data/workshops.ts)     | `assets/workshops/`        |
 | [Contact](#contact)          | [`src/data/contact.ts`](src/data/contact.ts)         | —                          |
 | [Donate](#donate)            | [`src/data/donate.ts`](src/data/donate.ts)           | —                          |
@@ -46,13 +46,13 @@ All text content lives in simple data files inside **`src/data/`**, and image co
 
 All images live in the **`assets/`** folder at the project root.
 
-| Purpose                      | Where to put files                                                   |
-| ---------------------------- | -------------------------------------------------------------------- |
-| Site logo                    | `assets/maybefiction-logo.png` (replace this file)                   |
-| Home sticky-note backgrounds | `assets/sticky-note-1.png` through `sticky-note-4.png`               |
-| Creator profile photos       | `assets/` (then reference in `about.ts` as `'/assets/filename.jpg'`) |
-| Workshop gallery             | `assets/workshops/`                                                  |
-| Production/Ritual galleries  | `assets/<folder-name>/` (match the `galleryPath` in the data file)   |
+| Purpose                        | Where to put files                                                   |
+| ------------------------------ | -------------------------------------------------------------------- |
+| Site logo                      | `assets/maybefiction-logo.png` (replace this file)                   |
+| Home sticky-note backgrounds   | `assets/sticky-note-1.png` through `sticky-note-4.png`               |
+| Creator profile photos         | `assets/` (then reference in `about.ts` as `'/assets/filename.jpg'`) |
+| Workshop gallery               | `assets/workshops/`                                                  |
+| Production/Gathering galleries | `assets/<folder-name>/` (match the `galleryPath` in the data file)   |
 
 If you want to add a new event gallery, you'll need to create a new folder in the **`assets/`** folder and add the images to it. Then, you'll need to add the gallery path to the corresponding data file.
 

@@ -5,7 +5,7 @@ import PageDescription from '../../components/ui/PageDescription.astro';
 import Section from '../../components/ui/Section.astro';
 import EventTileGrid from '../../components/ui/EventTileGrid.astro';
 import EventWell from '../../components/ui/EventWell.astro';
-import { ritualsPage, rituals } from '../../data/rituals';
+import { gatheringsPage, gatherings } from '../../data/gatherings';
 
 // Vite's import.meta.glob requires a static string, so we can't build per-entry
 // glob patterns from data. Instead we glob all asset images once and filter by
@@ -21,13 +21,13 @@ function getGalleryImages(folder: string) {
 }
 ---
 
-<Layout description={ritualsPage.metaDescription} title={ritualsPage.metaTitle}>
+<Layout description={gatheringsPage.metaDescription} title={gatheringsPage.metaTitle}>
   <Section x-data="{ selected: 0 }">
-    <PageTitle>{ritualsPage.title}</PageTitle>
-    <PageDescription>{ritualsPage.description}</PageDescription>
-    <EventTileGrid items={rituals} />
+    <PageTitle>{gatheringsPage.title}</PageTitle>
+    <PageDescription>{gatheringsPage.description}</PageDescription>
+    <EventTileGrid items={gatherings} />
     {
-      rituals.map((r, i) => (
+      gatherings.map((r, i) => (
         <EventWell
           index={i}
           title={r.title}

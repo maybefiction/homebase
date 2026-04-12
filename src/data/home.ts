@@ -13,6 +13,6 @@ export const homePage = {
     { label: 'About', href: 'about', row: 'inner' },
     { label: 'Workshops', href: 'workshops', row: 'inner' },
     { label: 'Productions', href: 'productions', row: 'outer' },
-    { label: 'Rituals', href: 'rituals', row: 'outer' },
+    { label: 'Gatherings', href: 'gatherings', row: 'outer' },
   ] as const,
 };
