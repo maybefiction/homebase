@@ -32,19 +32,17 @@
 }
 
 .about-avatar {
-  height: 256px;
-  width: 296px;
-  object-fit: cover;
+  max-width: 288px;
   margin: 0 auto;
 
   @media (min-width: $breakpoint-lg) {
-    height: 288px;
-    width: 288px;
     margin: 0;
   }
 
   &--circle {
     border-radius: 50%;
+    aspect-ratio: 1;
+    object-fit: cover;
   }
 
   &--square {

@@ -26,6 +26,17 @@ const outerLinks = homePage.navLinks.filter((l) => l.row === 'outer');
   title={homePage.metaTitle}
 >
   <div class="home-main">
+    <div class="home-intro-section">
+        <div class="home-logo">
+        <img
+          src={logo.src}
+          alt={homePage.logoAlt}
+        />
+      </div>
+      <div class="home-description-center">
+        <PageDescription>{homePage.tagline}</PageDescription>
+      </div>
+    </div>
     <div class="home-link-section">
       <div class="home-link-row home-link-row--inner">
         {innerLinks.map((link) => (
@@ -41,15 +52,6 @@ const outerLinks = homePage.navLinks.filter((l) => l.row === 'outer');
           </StickyNoteLink>
         ))}
       </div>
-    </div>
-    <div class="home-logo">
-      <img
-        src={logo.src}
-        alt={homePage.logoAlt}
-      />
-    </div>
-    <div class="home-description-center">
-      <PageDescription>{homePage.tagline}</PageDescription>
     </div>
   </div>
 </Layout>

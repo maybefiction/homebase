@@ -8,7 +8,7 @@
 export const homePage = {
   metaTitle: 'maybe:fiction',
   metaDescription: 'maybe:fiction — a creative collective.',
-  tagline: 'transforming art into a social practice',
+  tagline: 'We believe art happens when we gather, share stories, and imagine other ways of living together.',
   logoAlt: 'maybe:fiction studios logo',
   navLinks: [
     { label: 'About', href: 'about', row: 'inner' },
