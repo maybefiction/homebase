@@ -5,10 +5,7 @@ import { aboutPage, creators } from '../../data/about';
 import '../../styles/About.scss';
 ---
 
-<Layout
-  description={aboutPage.metaDescription}
-  title={aboutPage.metaTitle}
->
+<Layout description={aboutPage.metaDescription} title={aboutPage.metaTitle}>
   <About
     imageShape="square"
     imageAlt={aboutPage.logoAlt}
@@ -17,14 +14,16 @@ import '../../styles/About.scss';
     socialLinks={aboutPage.socialLinks}
     cta={aboutPage.cta}
   />
-  {creators.map((creator) => (
-    <About
-      reversed={creator.reversedDisplay}
-      imageSrc={creator.imageUrl}
-      imageAlt={creator.name}
-      name={creator.name}
-      bio={creator.bio}
-      socialLinks={creator.socialLinks}
-    />
-  ))}
+  {
+    creators.map((creator) => (
+      <About
+        reversed={creator.reversedDisplay}
+        imageSrc={creator.imageUrl}
+        imageAlt={creator.name}
+        name={creator.name}
+        bio={creator.bio}
+        socialLinks={creator.socialLinks}
+      />
+    ))
+  }
 </Layout>

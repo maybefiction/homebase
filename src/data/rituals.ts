@@ -1,6 +1,5 @@
 // Rituals page - Static Content
 
-
 import type { PhotoMeta } from '../data/gallery';
 
 export interface Ritual {
@@ -9,8 +8,6 @@ export interface Ritual {
   galleryPath?: string;
   galleryMetadata?: Record<string, PhotoMeta>;
 }
-
-
 
 // EDIT CONTENT BELOW
 
@@ -21,7 +18,6 @@ export const ritualsPage = {
   metaDescription: 'Description goes here!',
   description: 'Description goes here!',
 };
-
 
 // Ritual entries
 export const rituals: Ritual[] = [

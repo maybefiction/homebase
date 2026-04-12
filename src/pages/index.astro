@@ -21,17 +21,11 @@ const innerLinks = homePage.navLinks.filter((l) => l.row === 'inner');
 const outerLinks = homePage.navLinks.filter((l) => l.row === 'outer');
 ---
 
-<Layout
-  description={homePage.metaDescription}
-  title={homePage.metaTitle}
->
+<Layout description={homePage.metaDescription} title={homePage.metaTitle}>
   <div class="home-main">
     <div class="home-intro-section">
-        <div class="home-logo">
-        <img
-          src={logo.src}
-          alt={homePage.logoAlt}
-        />
+      <div class="home-logo">
+        <img src={logo.src} alt={homePage.logoAlt} />
       </div>
       <div class="home-description-center">
         <PageDescription>{homePage.tagline}</PageDescription>
@@ -39,18 +33,22 @@ const outerLinks = homePage.navLinks.filter((l) => l.row === 'outer');
     </div>
     <div class="home-link-section">
       <div class="home-link-row home-link-row--inner">
-        {innerLinks.map((link) => (
-          <StickyNoteLink href={`${base}/${link.href}`} image={imageMap[link.href]}>
-            {link.label}
-          </StickyNoteLink>
-        ))}
+        {
+          innerLinks.map((link) => (
+            <StickyNoteLink href={`${base}/${link.href}`} image={imageMap[link.href]}>
+              {link.label}
+            </StickyNoteLink>
+          ))
+        }
       </div>
       <div class="home-link-row home-link-row--outer">
-        {outerLinks.map((link) => (
-          <StickyNoteLink href={`${base}/${link.href}`} image={imageMap[link.href]}>
-            {link.label}
-          </StickyNoteLink>
-        ))}
+        {
+          outerLinks.map((link) => (
+            <StickyNoteLink href={`${base}/${link.href}`} image={imageMap[link.href]}>
+              {link.label}
+            </StickyNoteLink>
+          ))
+        }
       </div>
     </div>
   </div>

@@ -31,13 +31,27 @@
 }
 
 // Alpine transition utilities
-.transition { transition-property: all; }
-.ease-out { transition-timing-function: ease-out; }
-.ease-in { transition-timing-function: ease-in; }
-.duration-300 { transition-duration: 300ms; }
-.duration-200 { transition-duration: 200ms; }
-.opacity-0 { opacity: 0; }
-.opacity-100 { opacity: 1; }
+.transition {
+  transition-property: all;
+}
+.ease-out {
+  transition-timing-function: ease-out;
+}
+.ease-in {
+  transition-timing-function: ease-in;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+.duration-200 {
+  transition-duration: 200ms;
+}
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-100 {
+  opacity: 1;
+}
 
 // Base
 
@@ -54,7 +68,9 @@ body {
   color: $color-stone-950;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .dark body {

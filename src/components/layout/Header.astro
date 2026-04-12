@@ -17,12 +17,7 @@ const links = [
     </div>
 
     <div class="header-actions">
-      <button
-        type="button"
-        class="header-btn"
-        x-data
-        @click="$store.theme.toggle()"
-      >
+      <button type="button" class="header-btn" x-data @click="$store.theme.toggle()">
         <span class="sr-only">Toggle theme mode</span>
         <svg
           x-cloak
@@ -97,7 +92,9 @@ const links = [
         >
           {
             links.map((link) => (
-              <a href={link.href} class="header-dropdown-link">{link.name}</a>
+              <a href={link.href} class="header-dropdown-link">
+                {link.name}
+              </a>
             ))
           }
         </nav>

@@ -1,7 +1,5 @@
 // Contact page - Static Content
 
-
-
 // EDIT CONTENT BELOW
 
 // General page content

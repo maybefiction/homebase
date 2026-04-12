@@ -1,11 +1,11 @@
 // Gallery - Static Content
 
 export interface PhotoMeta {
-    date?: string;
-    location?: string;
-    caption?: string;
-    tags?: string[];
-  }
+  date?: string;
+  location?: string;
+  caption?: string;
+  tags?: string[];
+}
 
 // EDIT CONTENT BELOW
 

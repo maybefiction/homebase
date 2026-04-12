@@ -1,6 +1,5 @@
 // Productions page - Static Content
 
-
 import type { PhotoMeta } from '../data/gallery';
 
 export interface Production {
@@ -9,8 +8,6 @@ export interface Production {
   galleryPath?: string;
   galleryMetadata?: Record<string, PhotoMeta>;
 }
-
-
 
 // EDIT CONTENT BELOW
 
@@ -21,7 +18,6 @@ export const productionsPage = {
   metaDescription: 'Description goes here!',
   description: 'Description goes here!',
 };
-
 
 // Production entries
 export const productions: Production[] = [

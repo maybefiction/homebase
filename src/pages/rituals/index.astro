@@ -17,28 +17,25 @@ const allImages = import.meta.glob<{ default: ImageMetadata }>(
 
 function getGalleryImages(folder: string) {
   const prefix = `/assets/${folder}/`;
-  return Object.fromEntries(
-    Object.entries(allImages).filter(([path]) => path.startsWith(prefix))
-  );
+  return Object.fromEntries(Object.entries(allImages).filter(([path]) => path.startsWith(prefix)));
 }
 ---
 
-<Layout
-  description={ritualsPage.metaDescription}
-  title={ritualsPage.metaTitle}
->
+<Layout description={ritualsPage.metaDescription} title={ritualsPage.metaTitle}>
   <Section x-data="{ selected: 0 }">
     <PageTitle>{ritualsPage.title}</PageTitle>
     <PageDescription>{ritualsPage.description}</PageDescription>
     <EventTileGrid items={rituals} />
-    {rituals.map((r, i) => (
-      <EventWell
-        index={i}
-        title={r.title}
-        description={r.metaDescription}
-        galleryImages={r.galleryPath ? getGalleryImages(r.galleryPath) : undefined}
-        galleryMetadata={r.galleryMetadata}
-      />
-    ))}
+    {
+      rituals.map((r, i) => (
+        <EventWell
+          index={i}
+          title={r.title}
+          description={r.metaDescription}
+          galleryImages={r.galleryPath ? getGalleryImages(r.galleryPath) : undefined}
+          galleryMetadata={r.galleryMetadata}
+        />
+      ))
+    }
   </Section>
 </Layout>

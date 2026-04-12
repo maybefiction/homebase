@@ -1,7 +1,5 @@
 // Error pages - Static Content
 
-
-
 // EDIT CONTENT BELOW
 
 // 404 page content

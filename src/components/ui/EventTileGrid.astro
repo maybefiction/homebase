@@ -19,15 +19,17 @@ const { items } = Astro.props;
 ---
 
 <div class="tile-grid">
-  {items.map((item, i) => (
-    <button
-      type="button"
-      class="tile"
-      style={`background-image: url('${stickyNote.src}')`}
-      x-on:click={`selected = selected === ${i} ? null : ${i}`}
-      x-bind:aria-expanded={`selected === ${i}`}
-    >
-      <span class="tile-label">{item.title}</span>
-    </button>
-  ))}
+  {
+    items.map((item, i) => (
+      <button
+        type="button"
+        class="tile"
+        style={`background-image: url('${stickyNote.src}')`}
+        x-on:click={`selected = selected === ${i} ? null : ${i}`}
+        x-bind:aria-expanded={`selected === ${i}`}
+      >
+        <span class="tile-label">{item.title}</span>
+      </button>
+    ))
+  }
 </div>

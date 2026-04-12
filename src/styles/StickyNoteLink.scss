@@ -12,7 +12,9 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  transition: transform 0.25s ease, filter 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
 
   .dark & {
     color: $color-stone-950;

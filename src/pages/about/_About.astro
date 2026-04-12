@@ -15,7 +15,16 @@ interface Props {
   cta?: { text: string; href: string };
 }
 
-const { imageShape = 'circle', reversed = false, imageSrc, imageAlt, name, bio, socialLinks, cta } = Astro.props;
+const {
+  imageShape = 'circle',
+  reversed = false,
+  imageSrc,
+  imageAlt,
+  name,
+  bio,
+  socialLinks,
+  cta,
+} = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -28,27 +37,25 @@ const base = import.meta.env.BASE_URL;
         class={`about-avatar about-avatar--${imageShape}`}
       />
       <div class="social-links">
-        {socialLinks.map((link) => (
-          <a
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="social-link"
-            aria-label={link.name}
-            set:html={link.icon}
-          />
-        ))}
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label={link.name}
+              set:html={link.icon}
+            />
+          ))
+        }
       </div>
     </div>
     <div class="about-content">
       <p class="about-text">
         <b>{name}</b> — {bio}
       </p>
-      {cta && (
-        <Button href={`${base}${cta.href}`}>
-          {cta.text}
-        </Button>
-      )}
+      {cta && <Button href={`${base}${cta.href}`}>{cta.text}</Button>}
     </div>
   </div>
 </Section>

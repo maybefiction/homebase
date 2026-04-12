@@ -13,10 +13,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 );
 ---
 
-<Layout
-  description={workshopsPage.metaDescription}
-  title={workshopsPage.metaTitle}
->
+<Layout description={workshopsPage.metaDescription} title={workshopsPage.metaTitle}>
   <section class="section">
     <div class="photo-header">
       <PageTitle>{workshopsPage.title}</PageTitle>

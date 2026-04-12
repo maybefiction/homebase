@@ -7,10 +7,7 @@ import Section from '../components/ui/Section.astro';
 import { donatePage } from '../data/donate';
 ---
 
-<Layout
-  description={donatePage.metaDescription}
-  title={donatePage.metaTitle}
->
+<Layout description={donatePage.metaDescription} title={donatePage.metaTitle}>
   <Section>
     <PageTitle>{donatePage.title}</PageTitle>
     <PageDescription>{donatePage.description}</PageDescription>

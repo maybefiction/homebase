@@ -23,13 +23,12 @@ interface Props {
 const { index, title, description, galleryImages, galleryMetadata } = Astro.props;
 ---
 
-<div
-  class="detail-well"
-  x-show={`selected === ${index}`}
->
+<div class="detail-well" x-show={`selected === ${index}`}>
   <h3 class="detail-well-title">{title}</h3>
   <p class="detail-well-description">{description}</p>
-  {galleryImages && Object.keys(galleryImages).length > 0 && (
-    <Gallery images={galleryImages} metadata={galleryMetadata} />
-  )}
+  {
+    galleryImages && Object.keys(galleryImages).length > 0 && (
+      <Gallery images={galleryImages} metadata={galleryMetadata} />
+    )
+  }
 </div>
