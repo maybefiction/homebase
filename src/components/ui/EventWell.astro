@@ -16,17 +16,19 @@ import type { PhotoMeta } from './Gallery.astro';
 interface Props {
   index: number;
   title: string;
+  date?: string;
   description: string;
   galleryImages?: Record<string, { default: ImageMetadata }>;
   galleryMetadata?: Record<string, PhotoMeta>;
 }
 
-const { index, title, description, galleryImages, galleryMetadata } = Astro.props;
+const { index, title, date, description, galleryImages, galleryMetadata } = Astro.props;
 const descriptionHtml = await marked.parse(description);
 ---
 
 <div class="detail-well" x-show={`selected === ${index}`}>
   <h3 class="detail-well-title">{title}</h3>
+  {date && <p class="detail-well-date">{date}</p>}
   <div class="detail-well-description" set:html={descriptionHtml} />
   {
     galleryImages && Object.keys(galleryImages).length > 0 && (

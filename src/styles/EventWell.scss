@@ -28,6 +28,17 @@
   }
 }
 
+.detail-well-date {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba($color-stone-950, 0.5);
+  margin-bottom: 12px;
+}
+
+.dark .detail-well-date {
+  color: rgba($color-stone-100, 0.5);
+}
+
 .detail-well-description {
   font-size: 1rem;
   line-height: 28px;

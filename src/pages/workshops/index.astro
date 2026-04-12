@@ -2,24 +2,40 @@
 import Layout from '../../components/layout/Layout.astro';
 import PageTitle from '../../components/ui/PageTitle.astro';
 import PageDescription from '../../components/ui/PageDescription.astro';
-import Gallery from '../../components/ui/Gallery.astro';
-import { workshopsPage } from '../../data/workshops';
-import { galleryMeta } from '../../data/gallery';
-import '../../styles/Workshops.scss';
+import Section from '../../components/ui/Section.astro';
+import EventTileGrid from '../../components/ui/EventTileGrid.astro';
+import EventWell from '../../components/ui/EventWell.astro';
+import { workshopsPage, workshops } from '../../data/workshops';
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/assets/workshops/**/*.{jpg,jpeg,png,webp,gif}',
+// Vite's import.meta.glob requires a static string, so we can't build per-entry
+// glob patterns from data. Instead we glob all asset images once and filter by
+// each entry's galleryPath at build time.
+const allImages = import.meta.glob<{ default: ImageMetadata }>(
+  '/assets/**/*.{jpg,jpeg,png,webp,gif}',
   { eager: true }
 );
+
+function getGalleryImages(folder: string) {
+  const prefix = `/assets/${folder}/`;
+  return Object.fromEntries(Object.entries(allImages).filter(([path]) => path.startsWith(prefix)));
+}
 ---
 
 <Layout description={workshopsPage.metaDescription} title={workshopsPage.metaTitle}>
-  <section class="section">
-    <div class="photo-header">
-      <PageTitle>{workshopsPage.title}</PageTitle>
-      <PageDescription>{workshopsPage.description}</PageDescription>
-    </div>
-  </section>
-
-  <Gallery images={images} metadata={galleryMeta} />
+  <Section x-data="{ selected: 0 }">
+    <PageTitle>{workshopsPage.title}</PageTitle>
+    <PageDescription>{workshopsPage.description}</PageDescription>
+    <EventTileGrid items={workshops} />
+    {
+      workshops.map((w, i) => (
+        <EventWell
+          index={i}
+          title={w.title}
+          description={w.metaDescription}
+          galleryImages={w.galleryPath ? getGalleryImages(w.galleryPath) : undefined}
+          galleryMetadata={w.galleryMetadata}
+        />
+      ))
+    }
+  </Section>
 </Layout>
