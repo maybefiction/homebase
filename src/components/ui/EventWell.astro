@@ -1,4 +1,12 @@
 ---
+/**
+ * Expandable detail panel shown when its index matches the Alpine.js `selected` state.
+ *
+ * Alpine context required (ancestor must declare):
+ *   x-data="{ selected: null }"   – index of the currently selected item, or null
+ *
+ * Pair with <EventTileGrid> which toggles the `selected` value.
+ */
 import type { ImageMetadata } from 'astro';
 import '../../styles/EventWell.scss';
 import Gallery from './Gallery.astro';

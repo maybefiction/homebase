@@ -3,7 +3,7 @@ import Layout from '../../components/layout/Layout.astro';
 import PageTitle from '../../components/ui/PageTitle.astro';
 import PageDescription from '../../components/ui/PageDescription.astro';
 import Section from '../../components/ui/Section.astro';
-import EventTile from '../../components/ui/EventTile.astro';
+import EventTileGrid from '../../components/ui/EventTileGrid.astro';
 import EventWell from '../../components/ui/EventWell.astro';
 import { ritualsPage, rituals } from '../../data/rituals';
 
@@ -27,14 +27,10 @@ function getGalleryImages(folder: string) {
   description={ritualsPage.metaDescription}
   title={ritualsPage.metaTitle}
 >
-  <Section x-data="{ selected: null }">
+  <Section x-data="{ selected: 0 }">
     <PageTitle>{ritualsPage.title}</PageTitle>
     <PageDescription>{ritualsPage.description}</PageDescription>
-    <div class="tile-grid">
-      {rituals.map((r, i) => (
-        <EventTile index={i} title={r.title} />
-      ))}
-    </div>
+    <EventTileGrid items={rituals} />
     {rituals.map((r, i) => (
       <EventWell
         index={i}

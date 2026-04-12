@@ -1,0 +1,33 @@
+---
+/**
+ * Grid of sticky-note tiles that toggle an Alpine.js `selected` index.
+ *
+ * Alpine context required (ancestor must declare):
+ *   x-data="{ selected: null }"   – index of the currently selected tile, or null
+ *
+ * Each tile sets `selected` to its own index on click (or back to null to deselect).
+ * Pair with <EventWell> to display detail content for the selected item.
+ */
+import stickyNote from '../../../assets/sticky-note-4.png';
+import '../../styles/EventTileGrid.scss';
+
+interface Props {
+  items: { title: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="tile-grid">
+  {items.map((item, i) => (
+    <button
+      type="button"
+      class="tile"
+      style={`background-image: url('${stickyNote.src}')`}
+      x-on:click={`selected = selected === ${i} ? null : ${i}`}
+      x-bind:aria-expanded={`selected === ${i}`}
+    >
+      <span class="tile-label">{item.title}</span>
+    </button>
+  ))}
+</div>

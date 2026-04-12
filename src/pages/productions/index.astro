@@ -3,7 +3,7 @@ import Layout from '../../components/layout/Layout.astro';
 import PageTitle from '../../components/ui/PageTitle.astro';
 import PageDescription from '../../components/ui/PageDescription.astro';
 import Section from '../../components/ui/Section.astro';
-import EventTile from '../../components/ui/EventTile.astro';
+import EventTileGrid from '../../components/ui/EventTileGrid.astro';
 import EventWell from '../../components/ui/EventWell.astro';
 import { productionsPage, productions } from '../../data/productions';
 
@@ -27,14 +27,10 @@ function getGalleryImages(folder: string) {
   description={productionsPage.metaDescription}
   title={productionsPage.metaTitle}
 >
-  <Section x-data="{ selected: null }">
+  <Section x-data="{ selected: 0 }">
     <PageTitle>{productionsPage.title}</PageTitle>
     <PageDescription>{productionsPage.description}</PageDescription>
-    <div class="tile-grid">
-      {productions.map((p, i) => (
-        <EventTile index={i} title={p.title} />
-      ))}
-    </div>
+    <EventTileGrid items={productions} />
     {productions.map((p, i) => (
       <EventWell
         index={i}

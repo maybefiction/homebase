@@ -1,6 +1,7 @@
 @use 'constants' as *;
 
 .page-title {
+  font-family: $font-family-heading;
   font-size: 1.5rem;
   line-height: 32px;
   font-weight: 500;
